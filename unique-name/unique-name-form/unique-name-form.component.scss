@@ -1,0 +1,52 @@
+@import "~theme/mixins";
+
+:host {
+  background-color: var(--torrow-color-white);
+  display: block;
+}
+
+.mat-form-field {
+  margin-top: -1.2rem;
+}
+
+.unique-name-title {
+  @include regular-font(1.2rem, var(--torrow-color-primary));
+}
+
+.unique-name-text {
+  @include regular-font(1.4rem, var(--torrow-color-dark));
+}
+
+.unique-name-prefix {
+  @include regular-font(1.6rem, var(--torrow-color-disabled-font));
+}
+
+.unique-name-form {
+  width: 100%;
+}
+
+.warning-text {
+  @include regular-font(1.2rem, var(--torrow-color-red));
+  @include singleline-ellipsis;
+
+  bottom: 0;
+  position: absolute;
+}
+
+.unique-name-input-container {
+  position: relative;
+}
+
+.unique-name-label {
+  align-items: center;
+  bottom: 0;
+  display: inline-flex;
+  height: 100%;
+  position: absolute;
+  right: 0;
+}
+
+.unique-name-input {
+  padding-right: 2rem;
+  width: 100%;
+}

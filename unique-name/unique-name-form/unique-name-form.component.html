@@ -1,0 +1,45 @@
+<form class="p-16 unique-name-form"
+      id="uniqueNameForm"
+      [formGroup]="form"
+      (ngSubmit)="onSubmitForm()">
+  <div class="settings-unique-name">
+    <div class="unique-name-title">{{ i18nUniqueName | translate }}</div>
+    <div class="unique-name-input-container">
+      <mat-form-field class="mat-form-field tt-form-field">
+        <span matPrefix
+              class="unique-name-prefix">{{ uniqueNamePrefix }}</span>
+        <input matInput
+               class="unique-name-input"
+               id="unique-name-input"
+               type="text"
+               qa-id="settings-unique-name-input"
+               [formControl]="controlUniqueName"
+               [minlength]="minLengthUniqueName"
+               [maxlength]="maxLengthUniqueName">
+        <label for="unique-name-input"
+               class="unique-name-label">
+          <i *ngIf="showDeleteIcon"
+             class="tt-icon tt-icon-close"
+             (mousedown)="clearInputValue()"
+             qa-id="clear-unique-name"></i>
+        </label>
+        <mat-error>
+          <tt-validation-messages [control]="controlUniqueName">
+            <tt-validation-message error="minlength">
+              {{ i18nValidateMinLength | translate }}
+            </tt-validation-message>
+            <tt-validation-message error="uniqueNameCharacters">
+              {{ i18nValidateCharacters | translate }}
+            </tt-validation-message>
+          </tt-validation-messages>
+        </mat-error>
+      </mat-form-field>
+      <div *ngIf="isBusyUniqueNameVisible"
+           class="warning-text">
+        {{ i18nValidateUnique | translate : { requiredName: inputValue } }}
+      </div>
+    </div>
+    <div class="py-8 unique-name-text">{{ i18nValidateMessage | translate }}</div>
+    <div class="py-8 unique-name-text">{{ i18nDescription | translate }}</div>
+  </div>
+</form>
