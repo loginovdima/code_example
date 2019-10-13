@@ -14,7 +14,10 @@ import {
 
 import { ContextClientItem } from "@torrow/domain";
 import { UniqueNameFormComponent } from "@torrow/shared-dumb";
-import { contextItemState, TorrowItem } from "@torrow/store-data";
+import {
+  contextItemState,
+  TorrowItem,
+} from "@torrow/store-data";
 import { ItemUniqueNameProvider } from "./item-unique-name.provider";
 
 export abstract class ItemUniqueNameModal<T extends TorrowItem> implements ItemUniqueNameProvider {
