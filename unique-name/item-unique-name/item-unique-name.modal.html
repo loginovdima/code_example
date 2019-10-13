@@ -1,0 +1,30 @@
+<ion-header class="tt-header">
+  <ion-toolbar ttToolbarBackground
+               [contextItem]="rootContext$ | async"
+               qa-id="header-toolbar">
+    <ion-buttons slot="start">
+      <ion-button qa-id="header-left-button"
+                  (mousedown)="onBack()">
+        <i slot="icon-only"
+           class="tt-icon tt-icon-chevron-left"></i>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title qa-id="header-title">{{ i18nUniqueName | translate }}</ion-title>
+
+    <ion-buttons slot="end">
+      <button qa-id="header-right-button"
+              form="uniqueNameForm">
+        <i slot="icon-only"
+           class="tt-icon tt-icon-check"></i>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <tt-unique-name-form class="unique-name-form"
+                       [error]="error$ | async"
+                       [item]="item$ | async"
+                       (formSubmit)="onFormSubmit($event)"></tt-unique-name-form>
+</ion-content>
