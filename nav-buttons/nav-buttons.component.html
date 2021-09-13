@@ -1,0 +1,29 @@
+<ui-button-bar *ngIf="currentStep <= maxStepNumber">
+  <div class="button-wrapper" *ngIf="currentStep > 0">
+    <button mat-flat-button (click)="setCurrentStep(false)">
+      {{ 'PreviousStep' | translate }}
+    </button>
+  </div>
+  <div
+    class="button-wrapper"
+    *ngIf="currentStep < maxStepNumber"
+    [matTooltip]="(nextStepIsValid ? 'NextStep' : 'AccessIsRestricted') | translate"
+    matTooltipPosition="below"
+    matTooltipClass="default-tooltip"
+  >
+    <button mat-flat-button color="primary" (click)="setCurrentStep(true)" [disabled]="!nextStepIsValid">
+      {{ 'Next' | translate }}
+    </button>
+  </div>
+  <div
+    class="button-wrapper"
+    *ngIf="currentStep === maxStepNumber"
+    [matTooltip]="(!isSaveButtonAvailable ? 'NoValidAdjustments' : '') | translate"
+    matTooltipPosition="below"
+    matTooltipClass="default-tooltip"
+  >
+    <button mat-flat-button color="primary" (click)="save()" [disabled]="!isSaveButtonAvailable">
+      {{ 'SaveWithDots' | translate }}
+    </button>
+  </div>
+</ui-button-bar>

@@ -1,0 +1,11 @@
+@import 'variables';
+@import 'mosaic';
+
+ui-button-bar {
+  background-color: $color-white;
+}
+
+.button-wrapper {
+  margin-left: $space-16;
+  align-self: flex-start;
+}
